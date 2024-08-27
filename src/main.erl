@@ -131,6 +131,5 @@ string2lines([], Acc)          -> [lists:reverse(Acc)].
 splitFields(",", "," ++ Str, Acc) -> [lists:reverse(Acc) | splitFields(",", Str, [])];
 splitFields(",", "\"" ++ Str, _) -> splitFields("\"", Str, []);
 splitFields("\"", "\"" ++ Str, Acc) -> splitFields(",", Str, Acc);
-%splitFields("\"", "," ++ Str, _) -> splitFields(",", Str, []);
 splitFields(D, [H|T], Acc)       -> splitFields(D, T, [H|Acc]);
 splitFields(_, [], Acc)          -> [lists:reverse(Acc)].
